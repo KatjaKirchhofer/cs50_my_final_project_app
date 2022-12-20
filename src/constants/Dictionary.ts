@@ -1,15 +1,21 @@
 import {Dictionary} from "../types/Dictionary";
 
 export const dictionary: Dictionary = {
-  dailyEntry: "Dein täglicher Eintrag",
+  dailyEntry: "Mein täglicher Eintrag",
+  mySuccess: "Meine Erfolge",
   questionGoodYesterday: "Was habe ich gestern gut gemacht?",
-  first: "1."
+  first: "1.",
+  second: "2.",
+  third: "3.",
 }
 
 export const dictionaryEN: Dictionary = {
-  dailyEntry: "Your daily Entry",
+  dailyEntry: "My daily Entry",
+  mySuccess: "My Success",
   questionGoodYesterday: "Where did I succeed yesterday?",
-  first: "1rst"
+  first: "1rst",
+  second: "2cnd",
+  third: "3rd",
 }
 
 export const dictionaryES: Dictionary = {

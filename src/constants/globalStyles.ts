@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "./Colors";
 
 
 const globalStyles = StyleSheet.create({
@@ -24,6 +25,29 @@ const globalStyles = StyleSheet.create({
     marginBottom: 30,
     borderWidth: 1,
     borderRadius: 5
+  },
+  button: {
+    backgroundColor: Colors.primary,
+    borderRadius: 7,
+    height: 55,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  buttonText: {
+    fontSize: 20,
+    color: "white",
+  },
+  buttonDisabled: {
+    backgroundColor: Colors.grey,
+    borderRadius: 7,
+    height: 55,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
+  row: {
+    flexDirection: "row"
   }
 
 })

@@ -7,6 +7,7 @@ export const dictionary: Dictionary = {
   first: "1.",
   second: "2.",
   third: "3.",
+  save: "Speichern"
 }
 
 export const dictionaryEN: Dictionary = {
@@ -16,6 +17,7 @@ export const dictionaryEN: Dictionary = {
   first: "1rst",
   second: "2cnd",
   third: "3rd",
+  save: "Save"
 }
 
 export const dictionaryES: Dictionary = {

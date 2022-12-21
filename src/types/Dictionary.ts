@@ -5,4 +5,5 @@ export type Dictionary = {
   first: string,
   second: string,
   third: string,
+  save: string
 }

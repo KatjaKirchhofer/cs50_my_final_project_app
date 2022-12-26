@@ -3,6 +3,7 @@ import AppText from "../shared/AppText";
 import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
+import RNPickerSelect from 'react-native-picker-select';
 
 const ChangeLanguage = () => {
   type PickerItem = {

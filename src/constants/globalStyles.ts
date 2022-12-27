@@ -40,7 +40,7 @@ const globalStyles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: "white",
+    color: "#fff",
   },
   buttonDisabled: {
     backgroundColor: Colors.grey,
@@ -60,6 +60,30 @@ const globalStyles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 24,
   },
+  alignCenter: {
+    alignItems: "center"
+  },
+  centeredModalView: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingTop: 22,
+  },
+  modalWrapper: {
+    justifyContent: "center", alignItems: "center",
+  },
+  modalFirstView: {
+    marginTop: 20,
+    flex: 1,
+  },
+  modalSecondView: {
+    width: "90%",
+    height: "90%",
+    padding: 20,
+    borderRadius: 20,
 
+  },
+  alignEnd: {
+    alignItems: "flex-end"
+  },
 })
 export default globalStyles

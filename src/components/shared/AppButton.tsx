@@ -8,7 +8,7 @@ interface Interface {
   action: any
 }
 
-const RegisterButton = ({text, action}: Interface) => {
+const AppButton = ({text, action}: Interface) => {
 
   return (
     <TouchableOpacity
@@ -19,4 +19,4 @@ const RegisterButton = ({text, action}: Interface) => {
     </TouchableOpacity>
   )
 }
-export default RegisterButton;
+export default AppButton;

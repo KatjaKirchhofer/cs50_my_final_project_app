@@ -1,11 +1,15 @@
-import React from "react";
+import React, {SetStateAction, useState} from "react";
 import {View} from "../Themed";
 import globalStyles from "../../constants/globalStyles";
 import AppText from "../shared/AppText";
-import { MaterialIcons } from '@expo/vector-icons';
+import {MaterialIcons} from '@expo/vector-icons';
 import Colors from "../../constants/Colors";
+import {TouchableOpacity} from "react-native";
 
-const WelcomeHead = () => {
+interface Interface {
+  setModalVisible: React.Dispatch<SetStateAction<boolean>>
+}
+const WelcomeHead = ({setModalVisible}: Interface) => {
   return (
     <View style={[globalStyles.row, globalStyles.spaceBetween]}>
       <AppText
@@ -17,11 +21,15 @@ const WelcomeHead = () => {
         headline
       />
       <View style={{justifyContent: "center"}}>
-      <MaterialIcons
-        name="language"
-        size={24}
-        color={Colors.text}
-      />
+        <TouchableOpacity
+          onPress={()=> setModalVisible(true)}
+        >
+          <MaterialIcons
+            name="language"
+            size={24}
+            color={Colors.text}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   )

@@ -4,6 +4,9 @@ import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
 import {Picker} from '@react-native-picker/picker';
+import globalStyles from "../../constants/globalStyles";
+import {Button} from "react-native";
+import AppButton from "../shared/AppButton";
 
 interface Interface {
   selectedLanguage: string
@@ -12,17 +15,19 @@ interface Interface {
 
 const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
 
-  useEffect(() => {
+  const saveLanguage = () => {
     console.log(selectedLanguage)
-  }, [selectedLanguage]);
+  }
 
   return (
-    <View>
+    <View style={globalStyles.alignCenter}>
+      <View style={{paddingVertical: 25}}>
     <AppText
       text={dictionary.changeLanguage}
       headline
     />
-      <View>
+      </View>
+      <View style={{paddingBottom: 190 }}>
       <Picker
         selectedValue={selectedLanguage}
         style={{ height: 50, width: 150 }}
@@ -34,6 +39,10 @@ const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
         <Picker.Item label={Languages.SPANISH} value="es" />
       </Picker>
       </View>
+      <AppButton
+        text={"set"}
+        action={saveLanguage}
+      />
     </View>
   )
 }

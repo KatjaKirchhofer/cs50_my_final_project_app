@@ -5,7 +5,7 @@ import AppText from "../components/shared/AppText";
 import {dictionary} from "../constants/Dictionary";
 import {SafeAreaView} from "react-native";
 import AppTextInput from "../components/shared/AppTextInput";
-import RegisterButton from "../components/welcome/RegisterButton";
+import AppButton from "../components/shared/AppButton";
 import {useNavigation} from "@react-navigation/native";
 
 const RegisterScreen = () => {
@@ -17,8 +17,10 @@ const RegisterScreen = () => {
   return (
     <View style={globalStyles.container}>
       <SafeAreaView>
+        <View style={[globalStyles.alignCenter, {paddingTop: 20}]}>
         <AppText text={"logo"}/>
-
+        </View>
+        <View style={{paddingTop: 150, paddingBottom: 70}}>
             <AppTextInput
           value={name}
           action={setName}
@@ -34,9 +36,10 @@ const RegisterScreen = () => {
           action={setPasswordRep}
           placeholder={dictionary.repPassword}
         />
-        <RegisterButton
+        </View>
+        <AppButton
           text={dictionary.save}
-          action={()=> navigation.navigate("Home")}
+          action={()=> navigation.navigate("Root")}
         />
       </SafeAreaView>
     </View>

@@ -1,6 +1,6 @@
 import {Dictionary} from "../types/Dictionary";
 
-export const dictionaryDe: Dictionary = {
+const dictionaryDe: Dictionary = {
   dailyEntry: "Mein täglicher Eintrag",
   mySuccess: "Meine Erfolge",
   questionGoodYesterday: "Was habe ich gestern gut gemacht?",
@@ -17,7 +17,7 @@ export const dictionaryDe: Dictionary = {
   repPassword: "Passwort wiederholen",
 }
 
-export const dictionaryEN: Dictionary = {
+const dictionaryEN: Dictionary = {
   dailyEntry: "My daily Entry",
   mySuccess: "My Success",
   questionGoodYesterday: "Where did I succeed yesterday?",
@@ -34,7 +34,7 @@ export const dictionaryEN: Dictionary = {
   repPassword: "repeat password",
 }
 
-export const dictionary: Dictionary = {
+const dictionaryEs: Dictionary = {
   dailyEntry: "entrada diaria",
   mySuccess: "mis logros",
   questionGoodYesterday: "¿Qué hice bien ayer?",
@@ -50,3 +50,12 @@ export const dictionary: Dictionary = {
   password: "clave",
   repPassword: "repite la contraseña",
 }
+
+export const returnDictionary = () => {
+  return dictionary;
+}
+
+export const dictionary: Dictionary = returnDictionary()
+
+
+

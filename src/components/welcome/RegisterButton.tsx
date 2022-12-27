@@ -3,10 +3,19 @@ import {TouchableOpacity} from "react-native";
 import {Text} from "../Themed";
 import globalStyles from "../../constants/globalStyles";
 
-const RegisterButton = () => {
+interface Interface {
+  text: string
+  action: any
+}
+
+const RegisterButton = ({text, action}: Interface) => {
+
   return (
-    <TouchableOpacity style={globalStyles.button}>
-      <Text style={globalStyles.buttonText}>Register</Text>
+    <TouchableOpacity
+      style={globalStyles.button}
+      onPress={action}
+    >
+      <Text style={globalStyles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )
 }

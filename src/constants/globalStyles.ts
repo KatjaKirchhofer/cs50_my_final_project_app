@@ -22,13 +22,17 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     marginTop: 10,
-    marginBottom: 30,
-    borderWidth: 1,
-    borderRadius: 5
+    marginBottom: 10,
+    borderBottomWidthWidth: 1,
+    borderBottomColor: Colors.primary
+  },
+  borderBottom: {
+    borderBottomColor: Colors.primary,
+    borderBottomWidth: 1
   },
   button: {
     backgroundColor: Colors.primary,
-    borderRadius: 7,
+    borderRadius: 40,
     height: 55,
     justifyContent: "center",
     alignItems: "center",

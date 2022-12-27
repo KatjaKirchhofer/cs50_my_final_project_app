@@ -7,5 +7,10 @@ export type Dictionary = {
   third: string,
   save: string,
   settings: string,
-  changeLanguage: string
+  changeLanguage: string,
+  register: string,
+  name: string,
+  enterName: string,
+  password: string,
+  repPassword: string
 }

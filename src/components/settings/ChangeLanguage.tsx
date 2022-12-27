@@ -1,28 +1,20 @@
-import React, {useState} from "react";
+import React, {SetStateAction, useEffect} from "react";
 import AppText from "../shared/AppText";
 import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
-import RNPickerSelect from 'react-native-picker-select';
+import {Picker} from '@react-native-picker/picker';
 
-const ChangeLanguage = () => {
-  type PickerItem = {
-    value: number,
-    label: string
-  }
+interface Interface {
+  selectedLanguage: string
+  setSelectedLanguage: React.Dispatch<SetStateAction<string>>
+}
 
-  const [value, setValue] = useState(0);
+const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
 
-  const items: PickerItem[] = [{
-    value: 1,
-    label: Languages.GERMAN
-  },{
-    value: 2,
-    label: Languages.ENGLISH
-  },{
-    value: 3,
-    label: Languages.SPANISH
-  }]
+  useEffect(() => {
+    console.log(selectedLanguage)
+  }, [selectedLanguage]);
 
   return (
     <View>
@@ -30,36 +22,18 @@ const ChangeLanguage = () => {
       text={dictionary.changeLanguage}
       headline
     />
-      <RNPickerSelect
-        onValueChange={(value) => {
-          setValue(value)
-        }}
-        value={value}
-        placeholder={{  }}
-        useNativeAndroidPickerStyle
-        style={
-          {
-            viewContainer: {
-              width: "90%",
-            },
-            inputIOS: {
-              fontSize: 22,
-              width: "50%",
-              paddingTop: 3,
-              paddingBottom: 3,
-              marginVertical: 10,
-            },
-            inputAndroid: {
-              fontSize: 22,
-              width: "100%",
-              paddingTop: 3,
-              paddingBottom: 3,
-              marginVertical: 10,
-            },
-          }
-        }
-        items={items}
-      />
+      <View>
+      <Picker
+        selectedValue={selectedLanguage}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) =>  setSelectedLanguage(itemValue)}
+
+      >
+        <Picker.Item label={Languages.GERMAN} value="de" />
+        <Picker.Item label={Languages.ENGLISH} value="en" />
+        <Picker.Item label={Languages.SPANISH} value="es" />
+      </Picker>
+      </View>
     </View>
   )
 }

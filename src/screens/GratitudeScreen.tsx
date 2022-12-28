@@ -1,29 +1,34 @@
-import { StyleSheet } from 'react-native';
 
-import { Text, View } from '../components/Themed';
+import QuestionComponent from "../components/shared/QuestionComponent";
+import {View} from "../components/Themed";
+import globalStyles from "../constants/globalStyles";
+import {Image} from "react-native";
+import * as React from "react";
+import {useNavigation} from "@react-navigation/native";
+import {dictionary} from "../constants/Dictionary";
 
 export default function GratitudeScreen() {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+    <View style={globalStyles.container}>
+      <View style={{paddingTop: 10}}>
+        <Image
+          style={{
+            resizeMode: "cover",
+            height: 230,
+            width: "100%",
+          }}
+          source={require('../../assets/images/hands-g0062da300_1920.jpg')}
+        />
+      </View>
+      <QuestionComponent
+        navigationMethod={() => navigation.navigate("Root", {
+          screen: "Goals"
+        })}
+        placeholder={dictionary.questionGratitude}
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});

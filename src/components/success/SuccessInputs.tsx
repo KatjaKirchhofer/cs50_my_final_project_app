@@ -10,16 +10,16 @@ import {useNavigation} from "@react-navigation/native";
 interface Interface {
   showSuccess: boolean
   setShowSuccess: React.Dispatch<SetStateAction<boolean>>
+  navigationMethod: ()=> void
+  placeholder: string
 }
 
-const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
+const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placeholder}: Interface) => {
   const [successOne, setSuccessOne] = useState<string>("");
   const [successTwo, setSuccessTwo] = useState<string>("");
   const [successTree, setSuccessTree] = useState<string>("");
   const [successArray, setSuccessArray] = useState<string[]>([]);
   const [disabled, setDisabled] = useState(true);
-
-  const navigation = useNavigation();
 
   const disableButton = () => {
     if ((successOne && successTwo && successTree) === "") {
@@ -42,10 +42,7 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
     setShowSuccess(true);
     resetForm();
     setTimeout(() => {
-      navigation.navigate("Root", {
-        screen: "TabTwo",
-      });
-      navigation.navigate("Root")
+      navigationMethod()
     }, 3000);
   }
 
@@ -57,29 +54,29 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
   return (
     <ScrollView>
       {!showSuccess &&
-      <View style={{paddingTop: 50}}>
+      <View style={{paddingTop: 20}}>
         <AppTextInput
           value={successOne}
           action={setSuccessOne}
-          placeholder={dictionary.questionGoodYesterday}
+          placeholder={placeholder}
           multiline
           numberOfLines={3}
         />
         <AppTextInput
           value={successTwo}
           action={setSuccessTwo}
-          placeholder={dictionary.questionGoodYesterday}
+          placeholder={placeholder}
           multiline
           numberOfLines={3}
         />
         <AppTextInput
           value={successTree}
           action={setSuccessTree}
-          placeholder={dictionary.questionGoodYesterday}
+          placeholder={placeholder}
           multiline
           numberOfLines={3}
         />
-        <View style={{paddingTop: 70}}>
+        <View style={{paddingTop: 30}}>
         <AppButton
           text={dictionary.save}
           action={saveSuccess}

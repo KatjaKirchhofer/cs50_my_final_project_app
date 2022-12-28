@@ -23,7 +23,7 @@ const GoalsScreen = () => {
       </View>
       <QuestionComponent
         navigationMethod={() => navigation.navigate("Root", {
-          screen: "Success"
+          screen: "Results"
         })}
         placeholder={dictionary.questionGoals}
       />

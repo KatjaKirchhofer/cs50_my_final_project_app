@@ -21,7 +21,10 @@ export const dictionary: Dictionary = {
   wrongPassword: "Falsches Password!",
   passwordNotMatching: "Password passt nicht",
   welcome: "Willkommen!",
-  at: "Am:"
+  at: "Am:",
+  gratitude: "Dankbarkeit",
+  success: "Erfolg",
+  goals: "Ziele"
 }
 
 const dictionaryEN: Dictionary = {
@@ -45,7 +48,10 @@ const dictionaryEN: Dictionary = {
   wrongPassword: "wrong password!",
   passwordNotMatching: "passwords are not matching",
   welcome: "welcome!",
-  at: "at:"
+  at: "at:",
+  gratitude: "Gratitude",
+  success: "success",
+  goals: "goals"
 
 }
 
@@ -70,7 +76,11 @@ const dictionaryEs: Dictionary = {
   wrongPassword: "contraseña incorrecta!",
   passwordNotMatching: "las contraseñas no coinciden",
   welcome: "Bienvenidos!",
-  at: "en el:"
+  at: "en el:",
+  gratitude: "gratitud",
+  success: "logros",
+  goals: "Objetivos"
+
 }
 
 

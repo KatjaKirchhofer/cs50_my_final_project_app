@@ -1,15 +1,27 @@
 import {showDangerMessage} from "../shared/MessageService";
-import {dictionary} from "../../constants/Dictionary";
+import {Dictionary} from "../../types/Dictionary";
+import userStore from "../../store/userStore";
 
-export const submitForm = (navigation: any, password: string, passwordRep: string) => {
-  const passwordValid = checkPassword(password, passwordRep)
+export const submitForm = (navigation: any, password: string,
+                           passwordRep: string, dictionary: Dictionary, name: string) => {
+  const passwordValid = checkPassword(password, passwordRep, dictionary)
   if (passwordValid) {
+    userStore.dispatch({
+      type: "userAdded",
+      payload: {
+        userName: name,
+        password: password
+      }
+    })
+    const users = userStore.getState();
+    console.log(users)
+
     navigation.navigate("Root");
   }
 }
 
 
-const checkPassword = (password: string, passwordRep: string) => {
+const checkPassword = (password: string, passwordRep: string, dictionary: Dictionary) => {
   if (password !== passwordRep) {
     showDangerMessage(dictionary.warning, dictionary.passwordNotMatching);
     return false

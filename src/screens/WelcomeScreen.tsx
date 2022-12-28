@@ -24,7 +24,6 @@ const WelcomeScreen = () => {
           dictionary: dictionaryEN
         }
       })
-      console.log(dictionary)
     }
 
     if (selectedLanguage === "es") {
@@ -34,7 +33,6 @@ const WelcomeScreen = () => {
           dictionary: dictionaryEs
         }
       })
-      console.log(dictionary)
     }
   }
 
@@ -46,9 +44,6 @@ const WelcomeScreen = () => {
         dictionary: dictionaryDe
       }
     })
-    console.log(dictionary)
-
-    // setLanguage()
   }, []);
 
   useEffect(() => {

@@ -1,9 +1,6 @@
 import React, {useState} from "react";
 import {View} from "../Themed";
-import globalStyles from "../../constants/globalStyles";
-import AppText from "./AppText";
 import SuccessInputs from "../success/SuccessInputs";
-import store from "../../store/store";
 
 interface Interface {
   navigationMethod: () => void
@@ -12,27 +9,9 @@ interface Interface {
 
 const QuestionComponent = ({navigationMethod, placeholder}: Interface) => {
   const [showSuccess, setShowSuccess] = useState(false);
-  const dictionary = store.getState().dictionary;
-
-
-  let date = new Date();
-  const dd = String(date.getDate()).padStart(2, '0');
-  const mm = String(date.getMonth() + 1).padStart(2, '0');
-  const yyyy = date.getFullYear();
-  const today = dd + "." + mm + '.' + yyyy;
 
   return (
-    <View >
-    {showSuccess &&
-    <View style={[globalStyles.row, globalStyles.marginVertical15]}>
-      <AppText
-        text={dictionary.at}
-      />
-      <AppText
-        text={today}
-      />
-    </View>
-    }
+    <View>
     <SuccessInputs
       showSuccess={showSuccess}
       setShowSuccess={setShowSuccess}

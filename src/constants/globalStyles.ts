@@ -38,9 +38,23 @@ const globalStyles = StyleSheet.create({
     alignItems: "center",
     width: "100%",
   },
+  outlinedButton: {
+    backgroundColor: "white",
+    borderRadius: 40,
+    borderColor: Colors.primary,
+    borderWidth: 3,
+    height: 55,
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
+  },
   buttonText: {
     fontSize: 20,
     color: "#fff",
+  },
+  outlinedButtonText: {
+    fontSize: 20,
+    color: Colors.primary,
   },
   buttonDisabled: {
     backgroundColor: Colors.grey,

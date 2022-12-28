@@ -1,11 +1,10 @@
-import React, {SetStateAction, useEffect} from "react";
+import React, {SetStateAction} from "react";
 import AppText from "../shared/AppText";
 import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
 import {Picker} from '@react-native-picker/picker';
 import globalStyles from "../../constants/globalStyles";
-import {Button} from "react-native";
 import AppButton from "../shared/AppButton";
 
 interface Interface {
@@ -31,7 +30,7 @@ const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
       <Picker
         selectedValue={selectedLanguage}
         style={{ height: 50, width: 150 }}
-        onValueChange={(itemValue, itemIndex) =>  setSelectedLanguage(itemValue)}
+        onValueChange={(itemValue) =>  setSelectedLanguage(itemValue)}
 
       >
         <Picker.Item label={Languages.GERMAN} value="de" />
@@ -42,6 +41,7 @@ const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
       <AppButton
         text={"set"}
         action={saveLanguage}
+        disabled={false}
       />
     </View>
   )

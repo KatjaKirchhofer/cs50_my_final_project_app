@@ -13,5 +13,10 @@ export type Dictionary = {
   enterName: string,
   password: string,
   repPassword: string,
-  login: string
+  login: string,
+  warning: string,
+  wrongName: string,
+  wrongPassword: string,
+  passwordNotMatching: string,
+  welcome: string
 }

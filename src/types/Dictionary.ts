@@ -2,6 +2,8 @@ export type Dictionary = {
   dailyEntry: string,
   mySuccess: string,
   questionGoodYesterday: string,
+  questionGratitude: string,
+  questionGoals: string,
   first: string,
   second: string,
   third: string,

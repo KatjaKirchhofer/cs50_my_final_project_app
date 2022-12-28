@@ -1,6 +1,6 @@
 import {Dictionary} from "../types/Dictionary";
 
-const dictionaryDe: Dictionary = {
+export const dictionary: Dictionary = {
   dailyEntry: "Mein täglicher Eintrag",
   mySuccess: "Meine Erfolge",
   questionGoodYesterday: "Was habe ich gestern gut gemacht?",
@@ -51,11 +51,6 @@ const dictionaryEs: Dictionary = {
   repPassword: "repite la contraseña",
 }
 
-export const returnDictionary = () => {
-  return dictionary;
-}
-
-export const dictionary: Dictionary = returnDictionary()
 
 
 

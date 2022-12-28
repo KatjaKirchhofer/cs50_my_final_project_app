@@ -5,9 +5,11 @@ import globalStyles from "../constants/globalStyles";
 import {Image} from "react-native";
 import * as React from "react";
 import {useNavigation} from "@react-navigation/native";
-import {dictionary} from "../constants/Dictionary";
+import store from "../store/store";
 
 export default function GratitudeScreen() {
+  const dictionary = store.getState().dictionary;
+
   const navigation = useNavigation();
 
   return (

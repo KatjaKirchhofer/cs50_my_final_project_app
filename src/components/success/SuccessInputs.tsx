@@ -1,11 +1,10 @@
 import React, {SetStateAction, useEffect, useState} from "react";
 import AppTextInput from "../shared/AppTextInput";
-import {dictionary} from "../../constants/Dictionary";
 import { View} from "../Themed";
 import {ScrollView} from "react-native";
 import SuccessContent from "./SuccessContent";
 import AppButton from "../shared/AppButton";
-import {useNavigation} from "@react-navigation/native";
+import store from "../../store/store";
 
 interface Interface {
   showSuccess: boolean
@@ -20,6 +19,7 @@ const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placehold
   const [successTree, setSuccessTree] = useState<string>("");
   const [successArray, setSuccessArray] = useState<string[]>([]);
   const [disabled, setDisabled] = useState(true);
+  const dictionary = store.getState().dictionary;
 
   const disableButton = () => {
     if ((successOne && successTwo && successTree) === "") {

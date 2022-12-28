@@ -44,6 +44,7 @@ function LanguageModal({
             <ChangeLanguage
               selectedLanguage={selectedLanguage}
               setSelectedLanguage={setSelectedLanguage}
+              setModalVisible={setModalVisible}
             />
           </View>
         </View>

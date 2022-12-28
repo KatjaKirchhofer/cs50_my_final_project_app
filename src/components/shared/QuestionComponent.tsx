@@ -2,8 +2,8 @@ import React, {useState} from "react";
 import {View} from "../Themed";
 import globalStyles from "../../constants/globalStyles";
 import AppText from "./AppText";
-import {dictionary} from "../../constants/Dictionary";
 import SuccessInputs from "../success/SuccessInputs";
+import store from "../../store/store";
 
 interface Interface {
   navigationMethod: () => void
@@ -12,6 +12,8 @@ interface Interface {
 
 const QuestionComponent = ({navigationMethod, placeholder}: Interface) => {
   const [showSuccess, setShowSuccess] = useState(false);
+  const dictionary = store.getState().dictionary;
+
 
   let date = new Date();
   const dd = String(date.getDate()).padStart(2, '0');

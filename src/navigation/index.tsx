@@ -14,12 +14,12 @@ import LinkingConfiguration from './LinkingConfiguration';
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
-import {dictionary} from "../constants/Dictionary";
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import GoalsScreen from "../screens/GoalsScreen";
 import ResultScreen from "../screens/ResultScreen";
 import { Ionicons } from '@expo/vector-icons';
+import store from "../store/store";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -49,6 +49,7 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
+  const dictionary = store.getState().dictionary;
 
   return (
     <BottomTab.Navigator

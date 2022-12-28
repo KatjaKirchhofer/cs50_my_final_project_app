@@ -2,12 +2,12 @@ import React, {useEffect, useState} from "react";
 import {View} from "../components/Themed";
 import globalStyles from "../constants/globalStyles";
 import AppText from "../components/shared/AppText";
-import {dictionary} from "../constants/Dictionary";
 import {SafeAreaView} from "react-native";
 import AppTextInput from "../components/shared/AppTextInput";
 import AppButton from "../components/shared/AppButton";
 import {useNavigation} from "@react-navigation/native";
 import {enableSubmit, submitForm} from "../components/services/RegisterService";
+import store from "../store/store";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -15,6 +15,8 @@ const RegisterScreen = () => {
   const [passwordRep, setPasswordRep] = useState("");
   const [disabled, setDisabled] = useState(true);
   const navigation = useNavigation();
+  const dictionary = store.getState().dictionary;
+
 
   useEffect(() => {
     const buttonDisabled =  enableSubmit(name, password, passwordRep);

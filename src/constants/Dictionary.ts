@@ -15,6 +15,7 @@ export const dictionary: Dictionary = {
   enterName: "Dein Name",
   password: "Passwort",
   repPassword: "Passwort wiederholen",
+  login: "Login"
 }
 
 const dictionaryEN: Dictionary = {
@@ -32,6 +33,7 @@ const dictionaryEN: Dictionary = {
   enterName: "your name",
   password: "password",
   repPassword: "repeat password",
+  login: "login"
 }
 
 const dictionaryEs: Dictionary = {
@@ -49,6 +51,7 @@ const dictionaryEs: Dictionary = {
   enterName: "su nombre",
   password: "clave",
   repPassword: "repite la contraseña",
+  login: "Iniciar sesión"
 }
 
 

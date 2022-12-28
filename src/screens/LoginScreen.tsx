@@ -7,16 +7,18 @@ import {SafeAreaView} from "react-native";
 import AppTextInput from "../components/shared/AppTextInput";
 import AppButton from "../components/shared/AppButton";
 import {useNavigation} from "@react-navigation/native";
-import {enableSubmit, submitForm} from "../components/services/RegisterService";
+import {enableLogin, submitLogin} from "../components/services/LoginService";
 
 const LoginScreen = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [disabled, setDisabled] = useState(true);
   const navigation = useNavigation();
+  const userName = "Katja";
+  const userPassword = "Champ"
 
   useEffect(() => {
-    const buttonDisabled =  enableSubmit(name, password);
+    const buttonDisabled =  enableLogin(name, password);
     setDisabled(buttonDisabled)
   }, [name, password]);
 
@@ -40,7 +42,7 @@ const LoginScreen = () => {
          </View>
         <AppButton
           text={dictionary.save}
-          action={() => submitForm(navigation, password)}
+          action={() => submitLogin(navigation,name, password, userName, userPassword)}
           disabled={disabled}
         />
       </SafeAreaView>

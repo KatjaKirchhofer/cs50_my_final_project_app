@@ -4,6 +4,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './src/navigation';
+import FlashMessage from "react-native-flash-message";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,6 +17,7 @@ export default function App() {
       <SafeAreaProvider>
         <Navigation colorScheme={colorScheme} />
         <StatusBar />
+        <FlashMessage position="top" />
       </SafeAreaProvider>
     );
   }

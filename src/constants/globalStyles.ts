@@ -44,7 +44,7 @@ const globalStyles = StyleSheet.create({
   },
   buttonDisabled: {
     backgroundColor: Colors.grey,
-    borderRadius: 7,
+    borderRadius: 40,
     height: 55,
     justifyContent: "center",
     alignItems: "center",

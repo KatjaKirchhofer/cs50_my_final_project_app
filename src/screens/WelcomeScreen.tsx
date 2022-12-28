@@ -3,7 +3,7 @@ import {View} from "../components/Themed";
 import {Image, SafeAreaView} from "react-native";
 import globalStyles from "../constants/globalStyles";
 import WelcomeHead from "../components/welcome/WelcomeHead";
-import {dictionary, returnDictionary} from "../constants/Dictionary";
+import {dictionary} from "../constants/Dictionary";
 import {useNavigation} from "@react-navigation/native";
 import LanguageModal from "../components/settings/LanguageModal";
 import AppButton from "../components/shared/AppButton";
@@ -13,12 +13,6 @@ const WelcomeScreen = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("de");
-
-
-  const setDictionary = () => {
-    returnDictionary(selectedLanguage)
-
-  }
 
   return (
     <View style={globalStyles.container}>
@@ -39,6 +33,7 @@ const WelcomeScreen = () => {
       <AppButton
         text={dictionary.register}
         action={() => navigation.navigate("Register")}
+        disabled={false}
       />
       <LanguageModal
         setModalVisible={setModalVisible}

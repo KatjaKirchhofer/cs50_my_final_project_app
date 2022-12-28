@@ -2,6 +2,8 @@ export type Dictionary = {
   dailyEntry: string,
   mySuccess: string,
   questionGoodYesterday: string,
+  questionGratitude: string,
+  questionGoals: string,
   first: string,
   second: string,
   third: string,
@@ -19,5 +21,9 @@ export type Dictionary = {
   wrongPassword: string,
   passwordNotMatching: string,
   welcome: string,
-  at: string
+  at: string,
+  gratitude: string,
+  success: string,
+  goals: string,
+  result: string
 }

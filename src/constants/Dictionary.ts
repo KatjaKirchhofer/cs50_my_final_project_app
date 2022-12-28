@@ -4,6 +4,8 @@ export const dictionary: Dictionary = {
   dailyEntry: "Mein täglicher Eintrag",
   mySuccess: "Meine Erfolge",
   questionGoodYesterday: "Was habe ich gestern gut gemacht?",
+  questionGratitude: "Wofür bin ich dankbar?",
+  questionGoals: "Mein Ziel ist",
   first: "1.",
   second: "2.",
   third: "3.",
@@ -21,13 +23,19 @@ export const dictionary: Dictionary = {
   wrongPassword: "Falsches Password!",
   passwordNotMatching: "Password passt nicht",
   welcome: "Willkommen!",
-  at: "Am:"
+  at: "Am:",
+  gratitude: "Dankbarkeit",
+  success: "Erfolg",
+  goals: "Ziele",
+  result: "Meine Einträge"
 }
 
 const dictionaryEN: Dictionary = {
   dailyEntry: "My daily Entry",
   mySuccess: "My Success",
   questionGoodYesterday: "Where did I succeed yesterday?",
+  questionGratitude: "What am I grateful for?",
+  questionGoals: "My goal is",
   first: "1rst",
   second: "2cnd",
   third: "3rd",
@@ -45,14 +53,19 @@ const dictionaryEN: Dictionary = {
   wrongPassword: "wrong password!",
   passwordNotMatching: "passwords are not matching",
   welcome: "welcome!",
-  at: "at:"
-
+  at: "at:",
+  gratitude: "Gratitude",
+  success: "success",
+  goals: "goals",
+  result: "my entries"
 }
 
 const dictionaryEs: Dictionary = {
   dailyEntry: "entrada diaria",
   mySuccess: "mis logros",
   questionGoodYesterday: "¿Qué hice bien ayer?",
+  questionGratitude: "¿Por qué estoy agradecido?",
+  questionGoals: "Mi meta es",
   first: "1.",
   second: "2.",
   third: "3.",
@@ -70,7 +83,12 @@ const dictionaryEs: Dictionary = {
   wrongPassword: "contraseña incorrecta!",
   passwordNotMatching: "las contraseñas no coinciden",
   welcome: "Bienvenidos!",
-  at: "en el:"
+  at: "en el:",
+  gratitude: "gratitud",
+  success: "logros",
+  goals: "Objetivos",
+  result: "mis entradas"
+
 }
 
 

@@ -5,6 +5,7 @@ import {ScrollView} from "react-native";
 import SuccessContent from "./SuccessContent";
 import AppButton from "../shared/AppButton";
 import store from "../../store/store";
+import {showSuccessMessage} from "../shared/MessageService";
 
 interface Interface {
   showSuccess: boolean
@@ -41,9 +42,8 @@ const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placehold
     setSuccessArray(array)
     setShowSuccess(true);
     resetForm();
-    setTimeout(() => {
-      navigationMethod()
-    }, 3000);
+    showSuccessMessage(dictionary.success, dictionary.success)
+    navigationMethod()
   }
 
   useEffect(() => {

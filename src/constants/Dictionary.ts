@@ -27,7 +27,8 @@ export const dictionaryDe: Dictionary = {
   gratitude: "Dankbarkeit",
   success: "Erfolg",
   goals: "Ziele",
-  result: "Meine Einträge"
+  result: "Meine Einträge",
+  saveSuccess: "erfolgreich gespeichert"
 }
 
 export const dictionaryEN: Dictionary = {
@@ -57,7 +58,8 @@ export const dictionaryEN: Dictionary = {
   gratitude: "Gratitude",
   success: "success",
   goals: "goals",
-  result: "my entries"
+  result: "my entries",
+  saveSuccess: "saved successfully"
 }
 
 export const dictionaryEs: Dictionary = {
@@ -87,7 +89,9 @@ export const dictionaryEs: Dictionary = {
   gratitude: "gratitud",
   success: "logros",
   goals: "Objetivos",
-  result: "mis entradas"
+  result: "mis entradas",
+  saveSuccess: "Guardado exitosamente"
+
 
 }
 

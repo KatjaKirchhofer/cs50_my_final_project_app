@@ -48,7 +48,7 @@ const RegisterScreen = () => {
         </View>
         <AppButton
           text={dictionary.save}
-          action={() => submitForm(navigation, password, passwordRep)}
+          action={() => submitForm(navigation, password, passwordRep, dictionary, name)}
           disabled={disabled}
         />
       </SafeAreaView>

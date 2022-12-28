@@ -1,32 +1,33 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {NavigationContainer, DefaultTheme, DarkTheme, useNavigation} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import {ColorSchemeName, Pressable, TouchableOpacity} from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import SuccessScreen from '../screens/SuccessScreen';
 import GratitudeScreen from '../screens/GratitudeScreen';
-import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
+import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
-import { AntDesign } from '@expo/vector-icons';
-import { Octicons } from '@expo/vector-icons';
+import {AntDesign} from '@expo/vector-icons';
+import {Octicons} from '@expo/vector-icons';
 import GoalsScreen from "../screens/GoalsScreen";
 import ResultScreen from "../screens/ResultScreen";
-import { Ionicons } from '@expo/vector-icons';
+import {Ionicons} from '@expo/vector-icons';
 import store from "../store/store";
+import {Text} from "../components/Themed";
 
-export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
       linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <RootNavigator />
+      <RootNavigator/>
     </NavigationContainer>
   );
 }
@@ -36,12 +37,12 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Welcome" component={WelcomeScreen} options={{ headerShown: false }} />
-      <Stack.Screen name="Register" component={RegisterScreen} options={{ headerShown: true }} />
-      <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: true }} />
-      <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} />
-      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-     </Stack.Navigator>
+      <Stack.Screen name="Welcome" component={WelcomeScreen} options={{headerShown: false}}/>
+      <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown: true}}/>
+      <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: true}}/>
+      <Stack.Screen name="Root" component={BottomTabNavigator} options={{headerShown: false}}/>
+      <Stack.Screen name="NotFound" component={NotFoundScreen} options={{title: 'Oops!'}}/>
+    </Stack.Navigator>
   );
 }
 
@@ -50,28 +51,31 @@ const BottomTab = createBottomTabNavigator<RootTabParamList>();
 function BottomTabNavigator() {
   const colorScheme = useColorScheme();
   const dictionary = store.getState().dictionary;
+  const navigation = useNavigation()
 
   return (
     <BottomTab.Navigator
       initialRouteName="Success"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
-      }}>
+        headerRight: () => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Welcome')}
+            style={{paddingRight: 20}}
+          >
+            <AntDesign name="logout" size={24} color="black"/>
+          </TouchableOpacity>
+        )
+
+      }}
+
+    >
       <BottomTab.Screen
         name="Success"
         component={SuccessScreen}
-        options={({ navigation }: RootTabScreenProps<'Success'>) => ({
+        options={() => ({
           title: dictionary.success,
-          tabBarIcon: ({ color }) =><AntDesign name="Trophy" size={24} color={color}/> ,
-          headerRight: () => (
-            <Pressable
-              onPress={() => navigation.navigate('Modal')}
-              style={({ pressed }) => ({
-                opacity: pressed ? 0.5 : 1,
-              })}>
-
-            </Pressable>
-          ),
+          tabBarIcon: ({color}) => <AntDesign name="Trophy" size={24} color={color}/>,
         })}
       />
       <BottomTab.Screen
@@ -79,7 +83,7 @@ function BottomTabNavigator() {
         component={GratitudeScreen}
         options={{
           title: dictionary.gratitude,
-          tabBarIcon: ({ color }) => <Octicons name="heart" size={24} color={color} /> ,
+          tabBarIcon: ({color}) => <Octicons name="heart" size={24} color={color}/>,
         }}
       />
       <BottomTab.Screen
@@ -87,7 +91,7 @@ function BottomTabNavigator() {
         component={GoalsScreen}
         options={{
           title: dictionary.goals,
-          tabBarIcon: ({ color }) => <AntDesign name="staro" size={24} color={color} /> ,
+          tabBarIcon: ({color}) => <AntDesign name="staro" size={24} color={color}/>,
         }}
       />
       <BottomTab.Screen
@@ -95,7 +99,7 @@ function BottomTabNavigator() {
         component={ResultScreen}
         options={{
           title: dictionary.result,
-          tabBarIcon: ({ color }) => <Ionicons name="ios-book-outline" size={24} color={color} />,
+          tabBarIcon: ({color}) => <Ionicons name="ios-book-outline" size={24} color={color}/>,
         }}
       />
     </BottomTab.Navigator>

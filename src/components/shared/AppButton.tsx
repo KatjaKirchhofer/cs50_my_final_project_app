@@ -7,17 +7,18 @@ interface Interface {
   text: string
   action: any
   disabled: boolean
+  outlined?: boolean
 }
 
-const AppButton = ({text, action, disabled}: Interface) => {
+const AppButton = ({text, action, disabled, outlined}: Interface) => {
 
   return (
     <TouchableOpacity
-      style={disabled ? globalStyles.buttonDisabled : globalStyles.button}
+      style={disabled ? globalStyles.buttonDisabled : outlined ? globalStyles.outlinedButton : globalStyles.button}
       onPress={action}
       disabled={disabled}
     >
-      <Text style={ globalStyles.buttonText}>{text}</Text>
+      <Text style={outlined ? globalStyles.outlinedButtonText : globalStyles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )
 }

@@ -20,7 +20,7 @@ const WelcomeScreen = () => {
       <WelcomeHead
         setModalVisible={setModalVisible}
       />
-      <View style={{paddingTop: 30}}>
+      <View style={{paddingTop: 50}}>
       <Image
         style={{
           resizeMode: "cover",
@@ -30,11 +30,21 @@ const WelcomeScreen = () => {
         source={require('../../assets/images/diary-g3423914d7_1920.jpg')}
       />
       </View>
+      <View style={{marginTop: -50}}>
       <AppButton
         text={dictionary.register}
         action={() => navigation.navigate("Register")}
         disabled={false}
       />
+      <View style={{paddingTop: 20}}>
+      <AppButton
+        text={dictionary.login}
+        action={() => navigation.navigate("Login")}
+        disabled={false}
+        outlined
+      />
+      </View>
+      </View>
       <LanguageModal
         setModalVisible={setModalVisible}
         modalVisible={modalVisible}

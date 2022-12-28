@@ -1,12 +1,11 @@
-import { Text, View } from '../components/Themed';
+import { View } from '../components/Themed';
 import globalStyles from "../constants/globalStyles";
 import {dictionary} from "../constants/Dictionary";
 import SuccessInputs from "../components/success/SuccessInputs";
 import {useState} from "react";
 import ModalScreen from "./ModalScreen";
-import {TouchableOpacity} from "react-native";
-import {FontAwesome} from "@expo/vector-icons";
 import * as React from "react";
+import AppText from "../components/shared/AppText";
 
 export default function HomeScreen() {
   const [showSuccess, setShowSuccess] = useState(false);
@@ -21,22 +20,34 @@ export default function HomeScreen() {
 
   return (
     <View style={globalStyles.container}>
-      <TouchableOpacity
-        onPress={() => setModalVisible(true)}
-      >
-        <FontAwesome
-          name="cog"
-          size={25}
-          style={{ marginRight: 15 }}
+      {/*<TouchableOpacity*/}
+      {/*  onPress={() => setModalVisible(true)}*/}
+      {/*>*/}
+      {/*  <FontAwesome*/}
+      {/*    name="cog"*/}
+      {/*    size={25}*/}
+      {/*    style={{ marginRight: 15 }}*/}
+      {/*  />*/}
+      {/*</TouchableOpacity>*/}
+      <View style={globalStyles.marginVertical15}>
+      <AppText
+        text={dictionary.mySuccess}
+        headline
+      />
+      </View>
+        <View style={globalStyles.marginVertical15}>
+        <AppText
+          text={dictionary.dailyEntry}
         />
-      </TouchableOpacity>
-      <Text style={globalStyles.title}>{dictionary.mySuccess}</Text>
-      {!showSuccess ?
-        <Text style={globalStyles.subTitle}>{dictionary.dailyEntry}</Text>
-        :
-        <View style={globalStyles.row}>
-        <Text style={globalStyles.subTitle}>am: </Text>
-        <Text style={globalStyles.subTitle}>{today} </Text>
+        </View>
+      {showSuccess &&
+        <View style={[globalStyles.row, globalStyles.marginVertical15]}>
+          <AppText
+            text={dictionary.at}
+          />
+          <AppText
+            text={today}
+          />
         </View>
       }
       <SuccessInputs

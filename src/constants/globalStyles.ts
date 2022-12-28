@@ -99,5 +99,8 @@ const globalStyles = StyleSheet.create({
   alignEnd: {
     alignItems: "flex-end"
   },
+  marginVertical15: {
+    marginVertical: 15
+  }
 })
 export default globalStyles

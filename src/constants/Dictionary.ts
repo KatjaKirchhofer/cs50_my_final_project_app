@@ -15,7 +15,13 @@ export const dictionary: Dictionary = {
   enterName: "Dein Name",
   password: "Passwort",
   repPassword: "Passwort wiederholen",
-  login: "Login"
+  login: "Login",
+  warning: "Achtung!",
+  wrongName: "Falscher Username",
+  wrongPassword: "Falsches Password!",
+  passwordNotMatching: "Password passt nicht",
+  welcome: "Willkommen!",
+  at: "Am:"
 }
 
 const dictionaryEN: Dictionary = {
@@ -33,7 +39,14 @@ const dictionaryEN: Dictionary = {
   enterName: "your name",
   password: "password",
   repPassword: "repeat password",
-  login: "login"
+  login: "login",
+  warning: "warning!",
+  wrongName: "wrong username",
+  wrongPassword: "wrong password!",
+  passwordNotMatching: "passwords are not matching",
+  welcome: "welcome!",
+  at: "at:"
+
 }
 
 const dictionaryEs: Dictionary = {
@@ -51,7 +64,13 @@ const dictionaryEs: Dictionary = {
   enterName: "su nombre",
   password: "clave",
   repPassword: "repite la contraseña",
-  login: "Iniciar sesión"
+  login: "Iniciar sesión",
+  warning: "Peligro!",
+  wrongName: "nombre equivocado",
+  wrongPassword: "contraseña incorrecta!",
+  passwordNotMatching: "las contraseñas no coinciden",
+  welcome: "Bienvenidos!",
+  at: "en el:"
 }
 
 

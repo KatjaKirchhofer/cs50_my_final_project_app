@@ -1,10 +1,11 @@
 import React, {SetStateAction, useEffect, useState} from "react";
 import AppTextInput from "../shared/AppTextInput";
 import {dictionary} from "../../constants/Dictionary";
-import {Text, View} from "../Themed";
-import {ScrollView, TouchableOpacity} from "react-native";
-import globalStyles from "../../constants/globalStyles";
+import { View} from "../Themed";
+import {ScrollView} from "react-native";
 import SuccessContent from "./SuccessContent";
+import AppButton from "../shared/AppButton";
+import {useNavigation} from "@react-navigation/native";
 
 interface Interface {
   showSuccess: boolean
@@ -17,6 +18,8 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
   const [successTree, setSuccessTree] = useState<string>("");
   const [successArray, setSuccessArray] = useState<string[]>([]);
   const [disabled, setDisabled] = useState(true);
+
+  const navigation = useNavigation();
 
   const disableButton = () => {
     if ((successOne && successTwo && successTree) === "") {
@@ -37,7 +40,13 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
     const array: string[] = [successOne, successTwo, successTree];
     setSuccessArray(array)
     setShowSuccess(true);
-    resetForm()
+    resetForm();
+    setTimeout(() => {
+      navigation.navigate("Root", {
+        screen: "TabTwo",
+      });
+      navigation.navigate("Root")
+    }, 3000);
   }
 
   useEffect(() => {
@@ -48,11 +57,10 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
   return (
     <ScrollView>
       {!showSuccess &&
-      <View>
+      <View style={{paddingTop: 50}}>
         <AppTextInput
           value={successOne}
           action={setSuccessOne}
-          headline={dictionary.first}
           placeholder={dictionary.questionGoodYesterday}
           multiline
           numberOfLines={3}
@@ -60,7 +68,6 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
         <AppTextInput
           value={successTwo}
           action={setSuccessTwo}
-          headline={dictionary.second}
           placeholder={dictionary.questionGoodYesterday}
           multiline
           numberOfLines={3}
@@ -68,19 +75,18 @@ const SuccessInputs = ({showSuccess, setShowSuccess}: Interface) => {
         <AppTextInput
           value={successTree}
           action={setSuccessTree}
-          headline={dictionary.third}
           placeholder={dictionary.questionGoodYesterday}
           multiline
           numberOfLines={3}
         />
-        <TouchableOpacity
-          style={disabled ? globalStyles.buttonDisabled : globalStyles.button}
+        <View style={{paddingTop: 70}}>
+        <AppButton
+          text={dictionary.save}
+          action={saveSuccess}
           disabled={disabled}
-          onPress={saveSuccess}
-        >
-          <Text style={globalStyles.buttonText}>{dictionary.save}</Text>
-        </TouchableOpacity>
-      </View>}
+        />
+        </View>
+         </View>}
       {showSuccess &&
         <SuccessContent
           successArray={successArray}

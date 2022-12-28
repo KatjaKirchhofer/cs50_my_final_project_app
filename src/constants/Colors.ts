@@ -20,6 +20,7 @@ export default {
   },
   primary: "#B4CED6",
   grey: "#CDCFD0",
-  text: '#000'
-
+  text: '#000',
+  success: "#23C16B",
+  danger: "#EF3024",
 };

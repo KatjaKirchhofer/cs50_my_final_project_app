@@ -20,7 +20,8 @@ export const dictionary: Dictionary = {
   wrongName: "Falscher Username",
   wrongPassword: "Falsches Password!",
   passwordNotMatching: "Password passt nicht",
-  welcome: "Willkommen!"
+  welcome: "Willkommen!",
+  at: "Am:"
 }
 
 const dictionaryEN: Dictionary = {
@@ -43,7 +44,8 @@ const dictionaryEN: Dictionary = {
   wrongName: "wrong username",
   wrongPassword: "wrong password!",
   passwordNotMatching: "passwords are not matching",
-  welcome: "welcome!"
+  welcome: "welcome!",
+  at: "at:"
 
 }
 
@@ -67,9 +69,8 @@ const dictionaryEs: Dictionary = {
   wrongName: "nombre equivocado",
   wrongPassword: "contraseña incorrecta!",
   passwordNotMatching: "las contraseñas no coinciden",
-  welcome: "Bienvenidos!"
-
-
+  welcome: "Bienvenidos!",
+  at: "en el:"
 }
 
 

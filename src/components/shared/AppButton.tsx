@@ -6,16 +6,18 @@ import globalStyles from "../../constants/globalStyles";
 interface Interface {
   text: string
   action: any
+  disabled: boolean
 }
 
-const AppButton = ({text, action}: Interface) => {
+const AppButton = ({text, action, disabled}: Interface) => {
 
   return (
     <TouchableOpacity
-      style={globalStyles.button}
+      style={disabled ? globalStyles.buttonDisabled : globalStyles.button}
       onPress={action}
+      disabled={disabled}
     >
-      <Text style={globalStyles.buttonText}>{text}</Text>
+      <Text style={ globalStyles.buttonText}>{text}</Text>
     </TouchableOpacity>
   )
 }

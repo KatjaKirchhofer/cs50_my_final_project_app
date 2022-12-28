@@ -23,6 +23,8 @@ import {dictionary} from "../constants/Dictionary";
 import { AntDesign } from '@expo/vector-icons';
 import { Octicons } from '@expo/vector-icons';
 import GoalsScreen from "../screens/GoalsScreen";
+import ResultScreen from "../screens/ResultScreen";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -98,6 +100,14 @@ function BottomTabNavigator() {
         options={{
           title: dictionary.goals,
           tabBarIcon: ({ color }) => <AntDesign name="staro" size={24} color={color} /> ,
+        }}
+      />
+      <BottomTab.Screen
+        name="Results"
+        component={ResultScreen}
+        options={{
+          title: dictionary.result,
+          tabBarIcon: ({ color }) => <Ionicons name="ios-book-outline" size={24} color={color} />,
         }}
       />
     </BottomTab.Navigator>

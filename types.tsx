@@ -31,6 +31,7 @@ export type RootTabParamList = {
   Success: undefined;
   Gratitude: undefined;
   Goals: undefined;
+  Results: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

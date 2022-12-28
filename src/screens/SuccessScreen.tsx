@@ -5,10 +5,12 @@ import {View} from "../components/Themed";
 import {Image} from "react-native";
 import globalStyles from "../constants/globalStyles";
 import {useNavigation} from "@react-navigation/native";
-import {dictionary} from "../constants/Dictionary";
+import store from "../store/store";
 
 export default function SuccessScreen() {
   const navigation = useNavigation();
+  const dictionary = store.getState().dictionary;
+
 
   return (
     <View style={globalStyles.container}>

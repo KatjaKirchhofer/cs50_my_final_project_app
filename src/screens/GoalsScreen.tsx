@@ -4,9 +4,10 @@ import {View} from "../components/Themed";
 import globalStyles from "../constants/globalStyles";
 import {Image} from "react-native";
 import {useNavigation} from "@react-navigation/native";
-import {dictionary} from "../constants/Dictionary";
+import store from "../store/store";
 
 const GoalsScreen = () => {
+  const dictionary = store.getState().dictionary;
   const navigation = useNavigation();
 
   return (

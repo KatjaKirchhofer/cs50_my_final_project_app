@@ -1,21 +1,26 @@
 import React, {SetStateAction} from "react";
 import AppText from "../shared/AppText";
-import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
 import {Picker} from '@react-native-picker/picker';
 import globalStyles from "../../constants/globalStyles";
 import AppButton from "../shared/AppButton";
+import store from "../../store/store";
 
 interface Interface {
   selectedLanguage: string
   setSelectedLanguage: React.Dispatch<SetStateAction<string>>
+  setModalVisible: React.Dispatch<SetStateAction<boolean>>
 }
 
-const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
+const ChangeLanguage = ({selectedLanguage, setSelectedLanguage, setModalVisible}: Interface) => {
+  const dictionary = store.getState().dictionary;
+
 
   const saveLanguage = () => {
+    setSelectedLanguage(selectedLanguage);
     console.log(selectedLanguage)
+    setModalVisible(false)
   }
 
   return (

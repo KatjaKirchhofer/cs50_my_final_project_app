@@ -1,18 +1,68 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {View} from "../components/Themed";
 import {Image, SafeAreaView} from "react-native";
 import globalStyles from "../constants/globalStyles";
 import WelcomeHead from "../components/welcome/WelcomeHead";
-import {dictionary} from "../constants/Dictionary";
+import {dictionaryDe, dictionaryEN, dictionaryEs} from "../constants/Dictionary";
 import {useNavigation} from "@react-navigation/native";
 import LanguageModal from "../components/settings/LanguageModal";
 import AppButton from "../components/shared/AppButton";
+import store from "../store/store";
 
 
 const WelcomeScreen = () => {
   const navigation = useNavigation();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("de");
+  const dictionary = store.getState().dictionary;
+
+  const setLanguage = () => {
+    if (selectedLanguage === "en") {
+      store.dispatch({
+        type: "setLang",
+        payload: {
+          dictionary: dictionaryEN
+        }
+      })
+      console.log(dictionary)
+    }
+
+    if (selectedLanguage === "es") {
+      store.dispatch({
+        type: "setLang",
+        payload: {
+          dictionary: dictionaryEs
+        }
+      })
+      console.log(dictionary)
+    }
+  }
+
+
+  useEffect(() => {
+    store.dispatch({
+      type: "setLang",
+      payload: {
+        dictionary: dictionaryDe
+      }
+    })
+    console.log(dictionary)
+
+    // setLanguage()
+  }, []);
+
+  useEffect(() => {
+    store.dispatch({
+      type: "setLang",
+      payload: {
+        dictionary: dictionaryDe
+      }
+    })
+    console.log(dictionary)
+
+    setLanguage()
+  }, [selectedLanguage]);
+
 
   return (
     <View style={globalStyles.container}>

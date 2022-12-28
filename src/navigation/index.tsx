@@ -3,7 +3,6 @@
  * https://reactnavigation.org/docs/getting-started
  *
  */
-import { Feather, Foundation } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,13 +12,17 @@ import { ColorSchemeName, Pressable } from 'react-native';
 import Colors from '../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
-import HomeScreen from '../screens/HomeScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import SuccessScreen from '../screens/SuccessScreen';
+import GratitudeScreen from '../screens/GratitudeScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
+import {dictionary} from "../constants/Dictionary";
+import { AntDesign } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
+import GoalsScreen from "../screens/GoalsScreen";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -60,16 +63,16 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Success"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={({ navigation }: RootTabScreenProps<'Home'>) => ({
-          title: 'Add',
-          tabBarIcon: ({ color }) => <Foundation name="pencil" size={24} color={color} /> ,
+        name="Success"
+        component={SuccessScreen}
+        options={({ navigation }: RootTabScreenProps<'Success'>) => ({
+          title: dictionary.success,
+          tabBarIcon: ({ color }) =><AntDesign name="Trophy" size={24} color={color}/> ,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('Modal')}
@@ -82,11 +85,19 @@ function BottomTabNavigator() {
         })}
       />
       <BottomTab.Screen
-        name="TabTwo"
-        component={TabTwoScreen}
+        name="Gratitude"
+        component={GratitudeScreen}
         options={{
-          title: 'Read',
-          tabBarIcon: ({ color }) => <Feather name="book-open" size={24} color={color} /> ,
+          title: dictionary.gratitude,
+          tabBarIcon: ({ color }) => <Octicons name="heart" size={24} color={color} /> ,
+        }}
+      />
+      <BottomTab.Screen
+        name="Goals"
+        component={GoalsScreen}
+        options={{
+          title: dictionary.goals,
+          tabBarIcon: ({ color }) => <AntDesign name="staro" size={24} color={color} /> ,
         }}
       />
     </BottomTab.Navigator>

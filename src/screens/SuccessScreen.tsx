@@ -7,7 +7,7 @@ import ModalScreen from "./ModalScreen";
 import * as React from "react";
 import AppText from "../components/shared/AppText";
 
-export default function HomeScreen() {
+export default function SuccessScreen() {
   const [showSuccess, setShowSuccess] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState<string>("de");
   const [modalVisible, setModalVisible] = useState(false);

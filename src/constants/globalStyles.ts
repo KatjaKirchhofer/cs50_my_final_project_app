@@ -22,13 +22,17 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 20,
     marginTop: 10,
-    marginBottom: 30,
-    borderWidth: 1,
-    borderRadius: 5
+    marginBottom: 10,
+    borderBottomWidthWidth: 1,
+    borderBottomColor: Colors.primary
+  },
+  borderBottom: {
+    borderBottomColor: Colors.primary,
+    borderBottomWidth: 1
   },
   button: {
     backgroundColor: Colors.primary,
-    borderRadius: 7,
+    borderRadius: 40,
     height: 55,
     justifyContent: "center",
     alignItems: "center",
@@ -36,7 +40,7 @@ const globalStyles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 20,
-    color: "white",
+    color: "#fff",
   },
   buttonDisabled: {
     backgroundColor: Colors.grey,
@@ -56,6 +60,30 @@ const globalStyles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 24,
   },
+  alignCenter: {
+    alignItems: "center"
+  },
+  centeredModalView: {
+    flex: 1,
+    paddingHorizontal: 15,
+    paddingTop: 22,
+  },
+  modalWrapper: {
+    justifyContent: "center", alignItems: "center",
+  },
+  modalFirstView: {
+    marginTop: 20,
+    flex: 1,
+  },
+  modalSecondView: {
+    width: "90%",
+    height: "90%",
+    padding: 20,
+    borderRadius: 20,
 
+  },
+  alignEnd: {
+    alignItems: "flex-end"
+  },
 })
 export default globalStyles

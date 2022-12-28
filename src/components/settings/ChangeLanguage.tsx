@@ -1,63 +1,47 @@
-import React, {useState} from "react";
+import React, {SetStateAction, useEffect} from "react";
 import AppText from "../shared/AppText";
 import {dictionary} from "../../constants/Dictionary";
 import {View} from "../Themed";
 import {Languages} from "../../enums/Languages";
+import {Picker} from '@react-native-picker/picker';
+import globalStyles from "../../constants/globalStyles";
+import {Button} from "react-native";
+import AppButton from "../shared/AppButton";
 
-const ChangeLanguage = () => {
-  type PickerItem = {
-    value: number,
-    label: string
+interface Interface {
+  selectedLanguage: string
+  setSelectedLanguage: React.Dispatch<SetStateAction<string>>
+}
+
+const ChangeLanguage = ({selectedLanguage, setSelectedLanguage}: Interface) => {
+
+  const saveLanguage = () => {
+    console.log(selectedLanguage)
   }
 
-  const [value, setValue] = useState(0);
-
-  const items: PickerItem[] = [{
-    value: 1,
-    label: Languages.GERMAN
-  },{
-    value: 2,
-    label: Languages.ENGLISH
-  },{
-    value: 3,
-    label: Languages.SPANISH
-  }]
-
   return (
-    <View>
+    <View style={globalStyles.alignCenter}>
+      <View style={{paddingVertical: 25}}>
     <AppText
       text={dictionary.changeLanguage}
       headline
     />
-      <RNPickerSelect
-        onValueChange={(value) => {
-          setValue(value)
-        }}
-        value={value}
-        placeholder={{  }}
-        useNativeAndroidPickerStyle
-        style={
-          {
-            viewContainer: {
-              width: "90%",
-            },
-            inputIOS: {
-              fontSize: 22,
-              width: "50%",
-              paddingTop: 3,
-              paddingBottom: 3,
-              marginVertical: 10,
-            },
-            inputAndroid: {
-              fontSize: 22,
-              width: "100%",
-              paddingTop: 3,
-              paddingBottom: 3,
-              marginVertical: 10,
-            },
-          }
-        }
-        items={items}
+      </View>
+      <View style={{paddingBottom: 190 }}>
+      <Picker
+        selectedValue={selectedLanguage}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) =>  setSelectedLanguage(itemValue)}
+
+      >
+        <Picker.Item label={Languages.GERMAN} value="de" />
+        <Picker.Item label={Languages.ENGLISH} value="en" />
+        <Picker.Item label={Languages.SPANISH} value="es" />
+      </Picker>
+      </View>
+      <AppButton
+        text={"set"}
+        action={saveLanguage}
       />
     </View>
   )

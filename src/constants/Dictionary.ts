@@ -9,10 +9,15 @@ export const dictionary: Dictionary = {
   third: "3.",
   save: "Speichern",
   settings: "Einstellungen",
-  changeLanguage: "Sprache ändern"
+  changeLanguage: "Sprache ändern",
+  register: "Registrieren",
+  name: "Name",
+  enterName: "Dein Name",
+  password: "Passwort",
+  repPassword: "Passwort wiederholen",
 }
 
-export const dictionaryEN: Dictionary = {
+const dictionaryEN: Dictionary = {
   dailyEntry: "My daily Entry",
   mySuccess: "My Success",
   questionGoodYesterday: "Where did I succeed yesterday?",
@@ -21,10 +26,15 @@ export const dictionaryEN: Dictionary = {
   third: "3rd",
   save: "Save",
   settings: "ajustes",
-  changeLanguage: "Change Language"
+  changeLanguage: "Change Language",
+  register: "register",
+  name: "nombre",
+  enterName: "your name",
+  password: "password",
+  repPassword: "repeat password",
 }
 
-export const dictionaryES: Dictionary = {
+const dictionaryEs: Dictionary = {
   dailyEntry: "entrada diaria",
   mySuccess: "mis logros",
   questionGoodYesterday: "¿Qué hice bien ayer?",
@@ -33,5 +43,14 @@ export const dictionaryES: Dictionary = {
   third: "3.",
   save: "Guardar en la computadora",
   settings: "Settings",
-  changeLanguage: "cambiar idioma"
+  changeLanguage: "cambiar idioma",
+  register: "registrarse",
+  name: "nombre",
+  enterName: "su nombre",
+  password: "clave",
+  repPassword: "repite la contraseña",
 }
+
+
+
+

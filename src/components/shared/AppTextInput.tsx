@@ -1,26 +1,25 @@
 import React, { SetStateAction } from "react";
-import {View, Text} from "../Themed";
+import {View} from "../Themed";
 import {TextInput} from "react-native";
 import globalStyles from "../../constants/globalStyles";
+import Colors from "../../constants/Colors";
 
 
 export interface Props {
   value: string,
   action: React.Dispatch<SetStateAction<any>>,
-  headline: string,
   placeholder: string
   multiline?: boolean,
   numberOfLines?: number
 
 }
 const AppTextInput = ({
-                            value, action, headline,placeholder, multiline, numberOfLines,
+                            value, action, placeholder, multiline, numberOfLines,
                           }: Props) => {
 
 
   return (
-    <View>
-      <Text>{headline}</Text>
+    <View style={globalStyles.borderBottom}>
       <TextInput
         style={globalStyles.textInput}
         onChangeText={(t) => {
@@ -28,6 +27,7 @@ const AppTextInput = ({
         }}
         value={value}
         placeholder={placeholder}
+        placeholderTextColor={Colors.primary}
         keyboardType="default"
         multiline={multiline}
         numberOfLines={numberOfLines}

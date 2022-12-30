@@ -1,4 +1,4 @@
-import {showDangerMessage} from "../shared/MessageService";
+import {showDangerMessage, showSuccessMessage} from "../shared/MessageService";
 import {Dictionary} from "../../types/Dictionary";
 import userStore from "../../store/userStore";
 
@@ -13,10 +13,8 @@ export const submitForm = (navigation: any, password: string,
         password: password
       }
     })
-    const users = userStore.getState();
-    console.log(users)
-
-    navigation.navigate("Root");
+    showSuccessMessage(dictionary.success, dictionary.registerSuccess)
+    navigation.navigate("Login");
   }
 }
 

@@ -1,4 +1,4 @@
-import React, {SetStateAction, useState} from "react";
+import React, {SetStateAction} from "react";
 import {View} from "../Themed";
 import globalStyles from "../../constants/globalStyles";
 import AppText from "../shared/AppText";
@@ -11,13 +11,14 @@ interface Interface {
 }
 const WelcomeHead = ({setModalVisible}: Interface) => {
   return (
+    <View>
     <View style={[globalStyles.row, globalStyles.spaceBetween]}>
       <AppText
         text={"logo"}
         headline
       />
       <AppText
-        text={"name"}
+        text={"success app"}
         headline
       />
       <View style={{justifyContent: "center"}}>
@@ -30,6 +31,10 @@ const WelcomeHead = ({setModalVisible}: Interface) => {
             color={Colors.text}
           />
         </TouchableOpacity>
+      </View>
+    </View>
+      <View style={{justifyContent: "center"}}>
+      <AppText text={"by Katja Kirchhofer, Munich - Germany"}/>
       </View>
     </View>
   )

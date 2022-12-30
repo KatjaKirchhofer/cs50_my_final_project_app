@@ -33,7 +33,8 @@ export const dictionaryDe: Dictionary = {
   questionLogout: "Willst du dich ausloggen?",
   yes: "ja",
   no: "nein",
-  logoutSuccess: "Du bist ausgelogt"
+  logoutSuccess: "Du bist ausgelogt",
+  registerSuccess: "Du bist jetzt registiert!"
 }
 
 export const dictionaryEN: Dictionary = {
@@ -69,8 +70,8 @@ export const dictionaryEN: Dictionary = {
   questionLogout: "Do you want to logout?",
   yes: "yes",
   no: "no",
-  logoutSuccess: "successfully logged out"
-
+  logoutSuccess: "successfully logged out",
+  registerSuccess: "You are now registered!"
 }
 
 export const dictionaryEs: Dictionary = {
@@ -106,7 +107,9 @@ export const dictionaryEs: Dictionary = {
   questionLogout: "¿Quieres cerrar sesión?",
   yes: "si",
   no: "no",
-  logoutSuccess: "se desconectó con éxito"
+  logoutSuccess: "se desconectó con éxito",
+  registerSuccess: "¡Ya estás registrado!"
+
 }
 
 

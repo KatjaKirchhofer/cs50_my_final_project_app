@@ -26,5 +26,10 @@ export type Dictionary = {
   success: string,
   goals: string,
   result: string,
-  saveSuccess: string
+  saveSuccess: string,
+  logout: string,
+  questionLogout: string,
+  yes: string,
+  no: string,
+  logoutSuccess: string
 }

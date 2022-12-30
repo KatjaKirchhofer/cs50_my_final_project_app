@@ -8,15 +8,15 @@ import AppButton from "../components/shared/AppButton";
 import {useNavigation} from "@react-navigation/native";
 import {enableLogin, submitLogin} from "../components/services/LoginService";
 import store from "../store/store";
+import userStore from "../store/userStore";
 
 const LoginScreen = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [disabled, setDisabled] = useState(true);
   const navigation = useNavigation();
-  const userName = "Katja";
-  const userPassword = "Champ"
   const dictionary = store.getState().dictionary;
+  const users = userStore.getState();
 
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const LoginScreen = () => {
          </View>
         <AppButton
           text={dictionary.save}
-          action={() => submitLogin(navigation,name, password, userName, userPassword, dictionary)}
+          action={() => submitLogin(navigation,name, password, users, dictionary)}
           disabled={disabled}
         />
       </SafeAreaView>

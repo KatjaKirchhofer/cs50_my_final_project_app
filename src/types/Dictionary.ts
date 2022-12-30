@@ -32,5 +32,6 @@ export type Dictionary = {
   yes: string,
   no: string,
   logoutSuccess: string,
-  registerSuccess: string
+  registerSuccess: string,
+  congratulations: string
 }

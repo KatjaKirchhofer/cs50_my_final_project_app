@@ -1,20 +1,21 @@
 import React, {SetStateAction, useEffect, useState} from "react";
 import AppTextInput from "../shared/AppTextInput";
 import { View} from "../Themed";
-import {ScrollView} from "react-native";
-import SuccessContent from "./SuccessContent";
+import {KeyboardAvoidingView, Platform} from "react-native";
 import AppButton from "../shared/AppButton";
 import store from "../../store/store";
 import {showSuccessMessage} from "../shared/MessageService";
+import answerStore from "../../store/answerStore";
 
 interface Interface {
   showSuccess: boolean
   setShowSuccess: React.Dispatch<SetStateAction<boolean>>
   navigationMethod: ()=> void
   placeholder: string
+  type: string
 }
 
-const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placeholder}: Interface) => {
+const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placeholder, type}: Interface) => {
   const [successOne, setSuccessOne] = useState<string>("");
   const [successTwo, setSuccessTwo] = useState<string>("");
   const [successTree, setSuccessTree] = useState<string>("");
@@ -38,11 +39,20 @@ const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placehold
   }
 
   const saveSuccess = () => {
+    answerStore.dispatch({
+      type: "answerAdded",
+      payload: {
+        type: type,
+        descriptionOne: successOne,
+        descriptionTwo: successTwo,
+        descriptionThree: successTree
+      }
+    })
     const array: string[] = [successOne, successTwo, successTree];
     setSuccessArray(array)
     setShowSuccess(true);
     resetForm();
-    showSuccessMessage(dictionary.success, dictionary.success)
+    showSuccessMessage(dictionary.success, dictionary.saveSuccess)
     navigationMethod()
   }
 
@@ -52,9 +62,11 @@ const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placehold
 
 
   return (
-    <ScrollView>
+    <View>
       {!showSuccess &&
-      <View style={{paddingTop: 20}}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === "ios" ? "padding" : "height"}
+        >
         <AppTextInput
           value={successOne}
           action={setSuccessOne}
@@ -83,13 +95,14 @@ const SuccessInputs = ({showSuccess, setShowSuccess, navigationMethod, placehold
           disabled={disabled}
         />
         </View>
-         </View>}
-      {showSuccess &&
-        <SuccessContent
-          successArray={successArray}
-        />
-      }
-    </ScrollView>
+         </KeyboardAvoidingView>}
+      {/*{showSuccess &&*/}
+      {/*<SuccessContent*/}
+      {/*  successArray={successArray}*/}
+      {/*/>*/}
+      {/*}*/}
+    </View>
+
   )
 }
 export default SuccessInputs;

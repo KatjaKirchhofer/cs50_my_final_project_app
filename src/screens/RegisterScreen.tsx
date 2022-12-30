@@ -8,6 +8,7 @@ import AppButton from "../components/shared/AppButton";
 import {useNavigation} from "@react-navigation/native";
 import {enableSubmit, submitForm} from "../components/services/RegisterService";
 import store from "../store/store";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -19,38 +20,40 @@ const RegisterScreen = () => {
 
 
   useEffect(() => {
-    const buttonDisabled =  enableSubmit(name, password, passwordRep);
+    const buttonDisabled = enableSubmit(name, password, passwordRep);
     setDisabled(buttonDisabled)
   }, [name, password, passwordRep]);
 
   return (
     <View style={globalStyles.container}>
       <SafeAreaView>
-        <View style={[globalStyles.alignCenter, {paddingTop: 20}]}>
-          <AppText text={"logo"}/>
-        </View>
-        <View style={{paddingTop: 150, paddingBottom: 70}}>
-          <AppTextInput
-            value={name}
-            action={setName}
-            placeholder={dictionary.enterName}
+        <KeyboardAwareScrollView>
+          <View style={[globalStyles.alignCenter, {paddingTop: 20}]}>
+            <AppText text={"logo"}/>
+          </View>
+          <View style={{paddingTop: 150, paddingBottom: 70}}>
+            <AppTextInput
+              value={name}
+              action={setName}
+              placeholder={dictionary.enterName}
+            />
+            <AppTextInput
+              value={password}
+              action={setPassword}
+              placeholder={dictionary.password}
+            />
+            <AppTextInput
+              value={passwordRep}
+              action={setPasswordRep}
+              placeholder={dictionary.repPassword}
+            />
+          </View>
+          <AppButton
+            text={dictionary.save}
+            action={() => submitForm(navigation, password, passwordRep, dictionary, name)}
+            disabled={disabled}
           />
-          <AppTextInput
-            value={password}
-            action={setPassword}
-            placeholder={dictionary.password}
-          />
-          <AppTextInput
-            value={passwordRep}
-            action={setPasswordRep}
-            placeholder={dictionary.repPassword}
-          />
-        </View>
-        <AppButton
-          text={dictionary.save}
-          action={() => submitForm(navigation, password, passwordRep, dictionary, name)}
-          disabled={disabled}
-        />
+        </KeyboardAwareScrollView>
       </SafeAreaView>
     </View>
   )

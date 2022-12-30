@@ -6,6 +6,8 @@ import {Image} from "react-native";
 import globalStyles from "../constants/globalStyles";
 import {useNavigation} from "@react-navigation/native";
 import store from "../store/store";
+import {QuestionTypes} from "../enums/QuestionTypes";
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export default function SuccessScreen() {
   const navigation = useNavigation();
@@ -13,7 +15,8 @@ export default function SuccessScreen() {
 
 
   return (
-    <View style={globalStyles.container}>
+    <View  style={globalStyles.container}>
+      <KeyboardAwareScrollView>
     <View style={{paddingTop: 10}}>
       <Image
         style={{
@@ -29,7 +32,9 @@ export default function SuccessScreen() {
         screen: "Gratitude"
       })}
       placeholder={dictionary.questionGoodYesterday}
+      type={QuestionTypes.SUCCESS}
     />
+      </KeyboardAwareScrollView>
     </View>
   );
 }

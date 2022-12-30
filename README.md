@@ -1,5 +1,5 @@
 # SUCCESS APP
-#### Video Demo:  <URL HERE>
+#### Video Demo:  https://www.youtube.com/watch?v=IOFpHeuZIDA
 #### Description:
 - This IOS App enables you to boost your confident and become a happier person by investing only a few minutes every day
 - You can make daily entries in the app and keep track of
@@ -7,7 +7,7 @@
   2. your gratitude
   3. your goals
 
-- I decided to use react native for this project. With react native it´s easy to build applications for IOS and android with the same code. At the moment the app is only optimised for IOS.
+- I decided to use react native with redux store for this project. With react native it´s easy to build applications for IOS and android with the same code. At the moment the app is only optimised for IOS.
 - In the future version of this app I´ll implement a database and backend to save the entries for different users.
 ### Content:
 - Welcome Screen:

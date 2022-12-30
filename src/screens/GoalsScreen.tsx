@@ -5,6 +5,8 @@ import globalStyles from "../constants/globalStyles";
 import {Image} from "react-native";
 import {useNavigation} from "@react-navigation/native";
 import store from "../store/store";
+import {QuestionTypes} from "../enums/QuestionTypes";
+import {KeyboardAwareScrollView} from "react-native-keyboard-aware-scroll-view";
 
 const GoalsScreen = () => {
   const dictionary = store.getState().dictionary;
@@ -12,6 +14,7 @@ const GoalsScreen = () => {
 
   return (
     <View style={globalStyles.container}>
+    <KeyboardAwareScrollView>
       <View style={{paddingTop: 10}}>
         <Image
           style={{
@@ -27,7 +30,9 @@ const GoalsScreen = () => {
           screen: "Results"
         })}
         placeholder={dictionary.questionGoals}
+        type={QuestionTypes.GOALS}
       />
+    </KeyboardAwareScrollView>
     </View>
   )
 }

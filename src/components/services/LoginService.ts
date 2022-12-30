@@ -13,7 +13,7 @@ export  const submitLogin = (navigation: any,
   users.forEach((user: User) =>
     {
       if (user.userName !== name) {
-        showDangerMessage(dictionary.warning, dictionary.wrongName)
+        return
       } else {
         if (password !== user.password) {
           showDangerMessage(dictionary.warning, dictionary.wrongPassword)

@@ -53,8 +53,6 @@ const WelcomeScreen = () => {
         dictionary: dictionaryDe
       }
     })
-    console.log(dictionary)
-
     setLanguage()
   }, [selectedLanguage]);
 

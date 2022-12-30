@@ -28,7 +28,12 @@ export const dictionaryDe: Dictionary = {
   success: "Erfolg",
   goals: "Ziele",
   result: "Meine Einträge",
-  saveSuccess: "erfolgreich gespeichert"
+  saveSuccess: "erfolgreich gespeichert",
+  logout: "Ausloggen",
+  questionLogout: "Willst du dich ausloggen?",
+  yes: "ja",
+  no: "nein",
+  logoutSuccess: "Du bist ausgelogt"
 }
 
 export const dictionaryEN: Dictionary = {
@@ -59,7 +64,13 @@ export const dictionaryEN: Dictionary = {
   success: "success",
   goals: "goals",
   result: "my entries",
-  saveSuccess: "saved successfully"
+  saveSuccess: "saved successfully",
+  logout: "Log out",
+  questionLogout: "Do you want to logout?",
+  yes: "yes",
+  no: "no",
+  logoutSuccess: "successfully logged out"
+
 }
 
 export const dictionaryEs: Dictionary = {
@@ -90,9 +101,12 @@ export const dictionaryEs: Dictionary = {
   success: "logros",
   goals: "Objetivos",
   result: "mis entradas",
-  saveSuccess: "Guardado exitosamente"
-
-
+  saveSuccess: "Guardado exitosamente",
+  logout: "Cerrar sesión",
+  questionLogout: "¿Quieres cerrar sesión?",
+  yes: "si",
+  no: "no",
+  logoutSuccess: "se desconectó con éxito"
 }
 
 

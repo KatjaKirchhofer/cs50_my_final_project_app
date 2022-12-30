@@ -2,25 +2,24 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer, DefaultTheme, DarkTheme, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as React from 'react';
-import {ColorSchemeName, Pressable, TouchableOpacity} from 'react-native';
+import {ColorSchemeName,  TouchableOpacity} from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../../hooks/useColorScheme';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import SuccessScreen from '../screens/SuccessScreen';
 import GratitudeScreen from '../screens/GratitudeScreen';
-import {RootStackParamList, RootTabParamList, RootTabScreenProps} from '../../types';
+import {RootStackParamList, RootTabParamList} from '../../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import WelcomeScreen from "../screens/WelcomeScreen";
 import RegisterScreen from "../screens/RegisterScreen";
 import LoginScreen from "../screens/LoginScreen";
 import {AntDesign} from '@expo/vector-icons';
-import {Octicons} from '@expo/vector-icons';
+import {Octicons, Ionicons} from '@expo/vector-icons';
 import GoalsScreen from "../screens/GoalsScreen";
 import ResultScreen from "../screens/ResultScreen";
-import {Ionicons} from '@expo/vector-icons';
 import store from "../store/store";
-import {Text} from "../components/Themed";
+import {logout} from "../components/services/LogoutService";
 
 export default function Navigation({colorScheme}: { colorScheme: ColorSchemeName }) {
   return (
@@ -60,7 +59,7 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
         headerRight: () => (
           <TouchableOpacity
-            onPress={() => navigation.navigate('Welcome')}
+            onPress={() => logout(navigation, dictionary) }
             style={{paddingRight: 20}}
           >
             <AntDesign name="logout" size={24} color="black"/>
